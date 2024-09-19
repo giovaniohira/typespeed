@@ -1,0 +1,6 @@
+@import '../../variables.css';
+
+.TextDisplay {
+  font-size: 1.5em;
+  color: var(--primary-color);
+}
