@@ -1,6 +1,28 @@
 @import '../../variables.css';
 
 .TextDisplay {
-  font-size: 1.5em;
+  font-size: 2em;
   color: var(--primary-color);
+  text-justify: inter-word;
+  letter-spacing: 0.05rem;
+  font-weight: 200;
+  padding: 0 5rem 0 5rem;
+  white-space: pre-wrap; /* Maintain whitespace */
+  position: relative; /* Required for absolute positioning */
+}
+
+.correct {
+  color: var(--secondary-color); /* Color for correctly typed characters */
+  transition: 100ms;
+}
+
+.incorrect {
+  color: var(--terciary-color); /* Color for incorrectly typed characters */
+  transition: 100ms
+}
+
+.current {
+  color: var(--secondary-color); /* Color for the current character */
+  background-color: rgba(252, 208, 186, 0.1);
+  transition: 100ms
 }

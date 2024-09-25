@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-    --primary-color: #C8ACD6;
-    --secondary-color: #433D8B;
-    --terciary-color:  #2E236C;
-    --background-color: #17153B;
+    --primary-color: #FEFAD4;
+    --secondary-color: #FCD0BA;
+    --terciary-color:  #e25462;
+    --background-color: #765D69;
 }

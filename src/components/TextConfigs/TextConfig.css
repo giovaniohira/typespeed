@@ -1,0 +1,31 @@
+@import '../../variables.css';
+
+.TextConfigs *{
+    font-family: 'Hanken Grotesk', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    margin-right: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.TextConfigs {
+    margin: 0 0 2rem 0;
+}
+
+.TextConfigs .language-select {
+    cursor: pointer;
+}
+
+.TextConfigs .prompt-button {
+    cursor: pointer;
+}
+
+.gemini {
+    background: none;
+    color: var(--primary-color);
+    font-weight: 200;
+    margin-top: 0px;
+    margin-left: -5px;
+}
