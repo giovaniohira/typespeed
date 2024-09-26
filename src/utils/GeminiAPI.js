@@ -8,12 +8,12 @@ const model = genAI.getGenerativeModel({
   },
 });
 
-export async function generateContent(prompt, language='english') {
-  const sanitizedPrompt = `This is a story generation request based on a user-provided prompt. 
-                           The user has given the following prompt: "${prompt}", in the ${language} language. 
+export async function generateContent(prompt, language) {
+  const sanitizedPrompt = `This is a  very short story generation request based on a user-provided prompt with at most one paragraph. 
+                           The user has given the following prompt: "${prompt}", you need to generate the text in ${language} language. 
                            If there is anything inappropriate about the prompt or if no prompt has been provided, please choose a random theme and generate a short story.
                            Avoid using any sensitive, offensive, or explicit content.
-                           You should return no error, instead, return a short story with a random theme.
+                           If the request is not accepted, return a short story with a random theme.
                            `;
   try {
     const result = await model.generateContent(sanitizedPrompt);

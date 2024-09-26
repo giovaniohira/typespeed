@@ -1,6 +1,14 @@
 import './TextConfig.css';
 
-function TextConfigs({ promptInput, setPromptInput, promptInputRef, handleChangePrompt, selectedLanguage, setSelectedLanguage, setSelectedTime }) {
+function TextConfigs({ 
+    promptInput, 
+    setPromptInput, 
+    promptInputRef, 
+    handleChangePrompt, 
+    tempSelectedLanguage, 
+    setTempSelectedLanguage, 
+    setSelectedTime 
+}) {
     const languages = [
         "English", "Mandarin", "Hindi", "Spanish", "French", "Arabic", "Bengali", "Russian", "Portuguese", "Urdu",
         "Indonesian", "German", "Japanese", "Swahili", "Marathi", "Telugu", "Turkish", "Tamil", "Korean", "Vietnamese"
@@ -17,9 +25,9 @@ function TextConfigs({ promptInput, setPromptInput, promptInputRef, handleChange
                 ref={promptInputRef}
             />
             <select 
-            className='language-select'
-                value={selectedLanguage} 
-                onChange={(e) => setSelectedLanguage(e.target.value)}
+                className='language-select'
+                value={tempSelectedLanguage} 
+                onChange={(e) => setTempSelectedLanguage(e.target.value)}
             >
                 {languages.map((language, index) => (
                     <option key={index} value={language} className='language-option'>

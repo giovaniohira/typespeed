@@ -11,7 +11,7 @@
 }
 
 .TextConfigs {
-    margin: 0 0 2rem 0;
+    margin: 0 0 1vh 0;
 }
 
 .TextConfigs .language-select {
@@ -20,6 +20,7 @@
 
 .TextConfigs .prompt-button {
     cursor: pointer;
+    background-color: #e2b9a4;
 }
 
 .gemini {

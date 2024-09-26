@@ -6,7 +6,6 @@
   text-justify: inter-word;
   letter-spacing: 0.05rem;
   font-weight: 200;
-  padding: 0 5rem 0 5rem;
   white-space: pre-wrap; /* Maintain whitespace */
   position: relative; /* Required for absolute positioning */
 }

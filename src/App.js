@@ -19,10 +19,14 @@ function App() {
   const [prompt, setPrompt] = useState(
     "Choose a random theme and create a very short story. Don't use formatations like ## or **"
   ); // Prompt for content generation
-  const [selectedLanguage, setSelectedLanguage] = useState("English"); // Language for content generation
+
+  const [selectedLanguage, setSelectedLanguage] = useState("English"); // The language for content generation
+  const [tempSelectedLanguage, setTempSelectedLanguage] = useState("English"); // Temporary language before applying
+
   const [promptInput, setPromptInput] = useState(""); // Input field for new prompt
   const promptInputRef = useRef(null); // Reference to track focus on prompt input
 
+  // Fetch content function
   async function fetchContent() {
     try {
       const generatedContent = await generateContent(prompt, selectedLanguage);
@@ -32,9 +36,10 @@ function App() {
     }
   }
 
+  // Fetch content on initial load and when prompt changes
   useEffect(() => {
     fetchContent();
-  }, [prompt, selectedLanguage]); // Refetch content whenever the prompt changes
+  }, [prompt, selectedLanguage]); // Trigger fetchContent when prompt or language changes
 
   useEffect(() => {
     let timer;
@@ -42,7 +47,7 @@ function App() {
       timer = setInterval(() => {
         setTimeElapsed((prev) => prev + 1);
       }, 1000);
-    } else if (timeElapsed >= selectedTime ) {
+    } else if (timeElapsed >= selectedTime) {
       clearInterval(timer);
       setIsGameOver(true);
     }
@@ -70,7 +75,7 @@ function App() {
         setUserInput((prev) => prev + key); // Append char to input
       }
     };
-    if(userInput.length === content.length) {
+    if (userInput.length === content.length) {
       setIsGameOver(true);
     }
 
@@ -104,11 +109,12 @@ function App() {
     setIsGameOver(false);
     setHasStartedTyping(false);
     setContent("Loading...");
-    fetchContent();
+    fetchContent(); // Fetch new content
   };
 
   const handleChangePrompt = () => {
     setPrompt(promptInput); // Update the prompt with user input
+    setSelectedLanguage(tempSelectedLanguage); // Update the selected language when "Change Prompt" is pressed
     setUserInput("");
 
     setWpm(0);
@@ -118,6 +124,7 @@ function App() {
     setIsGameOver(false);
     setHasStartedTyping(false);
     setContent("Loading...");
+    fetchContent(); // Fetch content after changing the prompt and language
   };
 
   return (
@@ -128,8 +135,8 @@ function App() {
         setPromptInput={setPromptInput}
         promptInputRef={promptInputRef}
         handleChangePrompt={handleChangePrompt}
-        selectedLanguage={selectedLanguage}
-        setSelectedLanguage={setSelectedLanguage}
+        tempSelectedLanguage={tempSelectedLanguage}
+        setTempSelectedLanguage={setTempSelectedLanguage}
         setSelectedTime={setSelectedTime}
       />
       <TextDisplay
@@ -139,6 +146,7 @@ function App() {
         hasStartedTyping={hasStartedTyping}
       />
       {isGameOver && <Dimmer onRestart={handleRestart} cpm={cpm} wpm={wpm} />}
+      <p className="disclaimer">This game was created as a proof of concept, you may experience some bugs, mainly with the custom prompts. Coded by <a href="https://github.com/giovaniohira" target="_blank">Giovani Ohira</a></p>
     </div>
   );
 }
