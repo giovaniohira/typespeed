@@ -1,6 +1,6 @@
 # Typespeed
 
-Acess now and type as fast as you can! [](https://typespeed.giovaniohira.com).
+Acess now and type as fast as you can! [Typespeed](https://typespeed.giovaniohira.com).
 
 ![image](https://github.com/user-attachments/assets/4c163e03-4fe8-4f59-9bb7-50cb4c9565a2)
 
