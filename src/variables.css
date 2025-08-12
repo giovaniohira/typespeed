@@ -1,8 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary-color: #FEFAD4;
-    --secondary-color: #FCD0BA;
-    --terciary-color:  #e25462;
-    --background-color: #765D69;
+    /* Dark background palette */
+    --bg-primary: #0f0f23;
+    --bg-secondary: #1a1a2e;
+    --bg-tertiary: #16213e;
+    
+    /* Pastel accent colors */
+    --accent-primary: #a8e6cf;
+    --accent-secondary: #ffd3b6;
+    --accent-tertiary: #ffaaa5;
+    --accent-quaternary: #dcedc1;
+    
+    /* Text colors */
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --text-muted: #a0a0a0;
+    
+    /* Status colors */
+    --success: #a8e6cf;
+    --error: #ffaaa5;
+    --warning: #ffd3b6;
+    --info: #dcedc1;
+    
+    /* Shadows and effects */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+    --shadow-glow: 0 0 20px rgba(168, 230, 207, 0.3);
+    
+    /* Border radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.25s ease;
+    --transition-slow: 0.4s ease;
 }

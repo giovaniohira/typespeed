@@ -1,27 +1,86 @@
 @import '../../variables.css';
 
 .TextDisplay {
-  font-size: 2em;
-  color: var(--primary-color);
-  text-justify: inter-word;
-  letter-spacing: 0.05rem;
-  font-weight: 200;
-  white-space: pre-wrap; /* Maintain whitespace */
-  position: relative; /* Required for absolute positioning */
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  text-align: left;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  padding: 1.5rem;
+  background: rgba(22, 33, 62, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(168, 230, 207, 0.1);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1rem;
+}
+
+.TextDisplay p {
+  margin: 0 0 1rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  text-align: center;
+  background: rgba(168, 230, 207, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(168, 230, 207, 0.2);
+}
+
+.TextDisplay span {
+  transition: var(--transition-fast);
+  border-radius: 2px;
+  padding: 1px 2px;
+  margin-right: 0.125rem;
 }
 
 .correct {
-  color: var(--secondary-color); /* Color for correctly typed characters */
-  transition: 100ms;
+  color: var(--success);
+  background: rgba(168, 230, 207, 0.1);
+  font-weight: 500;
 }
 
 .incorrect {
-  color: var(--terciary-color); /* Color for incorrectly typed characters */
-  transition: 100ms
+  color: var(--error);
+  background: rgba(255, 170, 165, 0.1);
+  text-decoration: underline;
+  text-decoration-color: var(--error);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }
 
 .current {
-  color: var(--secondary-color); /* Color for the current character */
-  background-color: rgba(252, 208, 186, 0.1);
-  transition: 100ms
+  color: var(--accent-primary);
+  background: rgba(168, 230, 207, 0.2);
+  font-weight: 600;
+  box-shadow: 0 0 0 2px var(--accent-primary);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 2px var(--accent-primary);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(168, 230, 207, 0.4);
+  }
+}
+
+@media (max-width: 768px) {
+  .TextDisplay {
+    font-size: 1.125rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .TextDisplay p {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+    margin-bottom: 0.75rem;
+  }
 }

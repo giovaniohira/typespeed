@@ -1,38 +1,220 @@
 @import '../../variables.css';
+
 .dimmer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8.3px);
-    -webkit-backdrop-filter: blur(8.3px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 35, 0.95);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.dimmer-content {
+  background: rgba(26, 26, 46, 0.95);
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(168, 230, 207, 0.1);
+  text-align: center;
+  max-width: 550px;
+  width: 90%;
+  animation: slideUp 0.5s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dimmer-content h2 {
+  margin: 0 0 2rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  text-shadow: 0 0 20px rgba(168, 230, 207, 0.3);
+}
+
+.speed-graph {
+  margin: 2.5rem 0;
+  padding: 1.5rem 0;
+}
+
+.speed-graph h3 {
+  margin: 0 0 2rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  opacity: 0.9;
+}
+
+.graph-svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.axis-label {
+  font-size: 0.75rem;
+  fill: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  opacity: 0.6;
+}
+
+.graph-line {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.mistake-marker {
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+}
+
+.legend {
+  font-size: 0.75rem;
+}
+
+.legend-text {
+  fill: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.restart-button {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--bg-primary);
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  padding: 1.125rem 2.75rem;
+  border-radius: var(--radius-md);
+  transition: var(--transition-normal);
+  box-shadow: 0 8px 25px rgba(168, 230, 207, 0.3);
+  font-family: 'Inter', sans-serif;
+  min-width: 170px;
+  margin-top: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.restart-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.restart-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(168, 230, 207, 0.4);
+}
+
+.restart-button:hover::before {
+  left: 100%;
+}
+
+.restart-button:active {
+  transform: translateY(-1px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .dimmer-content {
+    padding: 2.5rem;
+    margin: 1rem;
+    max-width: 95%;
   }
   
-  .dimmer-content {
-    padding-top: 23rem;
-    text-align: center;
-    font-size: 1.5rem;
+  .dimmer-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
   }
-  .dimmer button {
-    font-size: 18px;
-    padding-top: 20px;
-    color: var(--primary-color);
-    cursor: pointer;
-    border: none;
-    background: none;
+  
+  .stats-container {
+    gap: 2rem;
+    margin-bottom: 2rem;
   }
-
-  .dimmer p {
-    font-weight: 200;
+  
+  .stat-value {
+    font-size: 2.25rem;
   }
-
-  .dimmer span {
-    font-weight: 400;
+  
+  .speed-graph {
+    margin: 2rem 0;
+    padding: 1rem 0;
   }
+  
+  .speed-graph h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .graph-svg {
+    width: 350px;
+    height: 160px;
+  }
+  
+  .restart-button {
+    font-size: 1rem;
+    padding: 1rem 2.25rem;
+    width: 100%;
+    margin-top: 1.25rem;
+  }
+}
   
